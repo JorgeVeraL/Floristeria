@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floristería La Reyna de las Flores | Arreglos florales de autor</title>
+<meta name="description" content="Ramos, arreglos florales, paquetes y promociones. Pide por WhatsApp y recibe en tu puerta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="promo" data-cfg="promoBanner"></div>
+<header><div class="bar">
+  <a class="logo" href="#inicio" data-cfg="nombre"></a>
+  <button id="menu-btn" aria-label="Menú">☰</button>
+  <nav id="nav">
+    <a href="#ofertas">Ofertas</a><a href="#paquetes">Paquetes</a><a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+  </nav>
+</div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+  <span class="eyebrow">Floristería La Reyna de las Flores · Villa de Etla, Oaxaca</span>
+  <h1>Flores que dicen lo que <em>las palabras no</em></h1>
+  <p>Arreglos diseñados a mano con flores frescas, para cada emoción y cada ocasión.</p>
+  <a class="btn" href="#catalogo">Ver catálogo</a><a class="btn btn--ghost" data-wa target="_blank" rel="noopener">Escríbenos</a>
+</div></section>
+
+<div class="strip"><div class="wrap"><span>Flores frescas</span><span>Entrega a domicilio</span><span>Diseños personalizados</span><span>Pedido por WhatsApp</span></div></div>
+
+<section id="ofertas"><div class="wrap">
+  <span class="eyebrow">Por tiempo limitado</span><h2>Ofertas</h2><p class="sub">Nuestros favoritos con precio especial.</p>
+  <div class="grid" id="ofertas-grid"></div>
+</div></section>
+
+<section class="alt" id="paquetes"><div class="wrap">
+  <span class="eyebrow">Flores + detalle</span><h2>Paquetes y promociones</h2><p class="sub">Combinaciones listas para sorprender.</p>
+  <div class="grid" id="paquetes-grid"></div>
+</div></section>
+
+<section id="catalogo"><div class="wrap">
+  <span class="eyebrow">Colección</span><h2>Catálogo</h2><p class="sub">Elige tu favorito y pídelo por WhatsApp.</p>
+  <div id="filters"></div><div class="grid" id="catalogo-grid"></div>
+</div></section>
+
+<section class="alt" id="nosotros"><div class="wrap about">
+  <div class="about__img reveal"><img src="assets/img/nosotros.jpg" alt="Nuestro taller floral" loading="lazy"></div>
+  <div class="reveal">
+    <span class="eyebrow">Nuestra historia</span><h2>Diseño floral con alma</h2>
+    <p>Somos una floristería familiar en donde seleccionamos cada mañana las mejores flores y las convertimos en regalos únicos, cuidando cada detalle, del tallo al moño.</p>
+    <div class="stats"><div><b>10+</b><span>Años</span></div><div><b>5,000+</b><span>Entregas</span></div><div><b>100%</b><span>Frescura</span></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Fácil y rápido</span><h2>Cómo pedir</h2><p class="sub">Tu regalo en tres pasos.</p>
+  <div class="steps">
+    <div class="step reveal"><b>01</b><h3>Elige</h3><p>Escoge tu arreglo o paquete favorito.</p></div>
+    <div class="step reveal"><b>02</b><h3>Escríbenos</h3><p>Se abre WhatsApp con tu producto listo.</p></div>
+    <div class="step reveal"><b>03</b><h3>Recibe</h3><p>Lo entregamos fresco donde lo necesites.</p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="eyebrow">Clientes felices</span><h2>Lo que dicen de nosotros</h2><p class="sub"></p>
+  <div class="quotes">
+    <div class="quote reveal"><p>Las rosas llegaron perfectas y a tiempo. Mi esposa quedó encantada.</p><small>— Cliente, aniversario</small></div>
+    <div class="quote reveal"><p>El arreglo era aún más bonito que en la foto. Súper recomendados.</p><small>— Cliente, cumpleaños</small></div>
+    <div class="quote reveal"><p>Atención rapidísima por WhatsApp y un diseño impecable.</p><small>— Cliente, evento</small></div>
+  </div>
+</div></section>
+
+<section id="contacto"><div class="wrap">
+  <span class="eyebrow">Visítanos</span><h2>Contacto</h2><p class="sub">Con gusto te atendemos en tienda o por WhatsApp.</p>
+  <div class="contact">
+    <div><h3>Dirección</h3><p data-cfg="direccion"></p></div>
+    <div><h3>Horario</h3><p data-cfg="horario"></p></div>
+    <div><h3>Teléfono</h3><p data-cfg="telefono"></p></div>
+    <div><h3>Correo</h3><p data-cfg="email"></p></div>
+  </div>
+  <div class="cta"><a class="btn" data-wa target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+</div></section>
+</main>
+<footer><b data-cfg="nombre"></b>© <span id="year"></span> · Todos los derechos reservados</footer>
+<a class="float-wa" data-wa target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<script src="js/config.js"></script>
+<script src="js/data/products.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

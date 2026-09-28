@@ -1,0 +1,159 @@
+/* ==========================================================
+   PALETA (regla 60-30-10)
+   60% Rosas / rojos  -> hero, títulos de precio, botones secundarios, footer
+   30% Marfil / blush -> fondos claros, respiro visual
+   10% Dorado + Verde tallo -> acentos (dorado = acción, verde = confianza)
+   El verde es el complementario del rojo: se usa poco y en bloques
+   pequeños (franja de beneficios, WhatsApp) para dar contraste vivo.
+   ========================================================== */
+:root{
+  /* Rojos / rosas */
+  --wine:#4a0e1f;        /* vino profundo: fondos oscuros, footer */
+  --rose-deep:#8c1d3f;   /* rojo rosa intenso: precios, botones */
+  --rose:#c8435f;        /* rosa rojo: badges, hover */
+  --rose-soft:#e9aab7;   /* rosa suave: detalles sobre oscuro */
+  --blush:#f8e7e7;       /* rosa pálido: secciones alternas */
+
+  /* Dorado */
+  --gold:#c9a13b;        /* dorado principal (botones) */
+  --gold-light:#e6c76a;  /* dorado claro sobre fondos oscuros */
+  --gold-deep:#8f6d1c;   /* dorado oscuro: texto sobre fondo claro (buen contraste) */
+
+  /* Verde tallo */
+  --stem:#3d5a3a;
+  --stem-deep:#27402a;
+
+  /* Neutros cálidos */
+  --ivory:#fdf8f4;
+  --ink:#2b1a1e;         /* texto: casi negro con matiz vino */
+  --muted:#75686a;
+
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+  --hh:76px;             /* altura fija del header */
+}
+
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--ivory);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+section{padding:110px 24px}
+.wrap{max-width:1180px;margin:auto}
+.eyebrow{display:block;text-align:center;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:12px;font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);text-align:center;color:var(--wine)}
+.sub{text-align:center;color:var(--muted);max-width:520px;margin:14px auto 56px}
+.alt{background:var(--blush)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- Barra promo + Header ---------- */
+.promo{background:var(--stem-deep);color:var(--gold-light);text-align:center;padding:9px 12px;font-size:.78rem;letter-spacing:.08em}
+
+/* CORRECCIÓN DE LA LÍNEA BLANCA:
+   antes el header ocupaba espacio y el margin-bottom:-72px no coincidía con su
+   altura real, dejando una franja del fondo marfil entre la promo y el hero.
+   Ahora el header mide 0 en el flujo (no empuja nada) y el hero empieza
+   pegado a la promo. El fondo al hacer scroll va en ::before. */
+header{position:sticky;top:0;z-index:20;height:0}
+header::before{content:"";position:absolute;left:0;right:0;top:0;height:var(--hh);background:#fdf8f4f2;backdrop-filter:blur(12px);box-shadow:0 1px 0 #4a0e1f1f;opacity:0;transition:opacity .35s}
+header.scrolled::before{opacity:1}
+.bar{position:relative;display:flex;justify-content:space-between;align-items:center;max-width:1180px;height:var(--hh);margin:auto;padding:0 24px}
+.logo{font-family:var(--serif);font-size:1.7rem;line-height:1;color:#fff;text-decoration:none;letter-spacing:.04em;transition:color .35s}
+nav{display:flex;gap:34px}
+nav a{color:#fff;text-decoration:none;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
+nav a:hover{color:var(--gold-light)}
+header.scrolled .logo,header.scrolled nav a{color:var(--wine)}
+header.scrolled nav a:hover{color:var(--gold-deep)}
+#menu-btn{display:none;background:none;border:0;font-size:1.7rem;line-height:1;color:#fff;cursor:pointer}
+header.scrolled #menu-btn{color:var(--wine)}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100svh;display:grid;align-items:center;padding:140px 24px 90px;color:#fff;
+  background:linear-gradient(100deg,#4a0e1fea 8%,#8c1d3f66 78%),url(../assets/img/hero.jpg) center/cover,var(--rose-deep)}
+.hero .wrap{width:100%}
+.hero .eyebrow{text-align:left;color:var(--gold-light)}
+.hero h1{font-size:clamp(3rem,9vw,6.5rem);max-width:820px;font-weight:400}
+.hero h1 em{color:var(--gold-light);font-style:italic}
+.hero p{max-width:480px;margin:24px 0 38px;color:#f6e6e8;font-size:1.05rem}
+.btn{display:inline-block;background:var(--gold);color:var(--wine);padding:14px 32px;text-decoration:none;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:.3s;border:1px solid var(--gold)}
+.btn:hover{background:transparent;color:var(--gold-light);border-color:var(--gold-light)}
+.btn--ghost{background:transparent;color:#fff;border-color:#ffffff88;margin-left:12px}
+.btn--ghost:hover{background:#fff;color:var(--wine);border-color:#fff}
+.btn--sm{padding:9px 18px;font-size:.7rem;background:var(--rose-deep);color:#fff;border-color:var(--rose-deep)}
+.btn--sm:hover{background:var(--gold);border-color:var(--gold);color:var(--wine)}
+
+/* ---------- Beneficios (verde tallo) ---------- */
+.strip{background:var(--stem);color:#f1ead2;padding:28px 24px;border-bottom:3px solid var(--gold)}
+.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;text-align:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- Productos ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:34px 28px}
+.card__media{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#f8e7e7,#dfe8db)}
+.card__media img,.about__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card__media img{transform:scale(1.07)}
+img.broken{display:none}
+.ph{position:absolute;inset:0;display:grid;place-items:center;font-size:4.5rem;opacity:.55}
+.badge{position:absolute;top:14px;left:14px;background:var(--rose-deep);color:#fff;padding:4px 12px;font-size:.72rem;letter-spacing:.1em;font-weight:600}
+.card__body{padding:18px 4px 0}
+.card small{color:var(--gold-deep);letter-spacing:.2em;text-transform:uppercase;font-size:.68rem;font-weight:600}
+.card h3{font-size:1.55rem;margin:6px 0;color:var(--wine)}
+.card p{color:var(--muted);font-size:.9rem}
+.card__foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid #8c1d3f22}
+.price{font-family:var(--serif);font-size:1.6rem;color:var(--rose-deep);font-weight:600}
+.price s{color:#a89a9c;font-size:1rem;font-weight:400;margin-left:6px}
+#filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.chip{border:1px solid #8c1d3f40;background:transparent;color:var(--wine);padding:9px 22px;cursor:pointer;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;transition:.3s;font-family:var(--sans)}
+.chip:hover{border-color:var(--rose-deep);color:var(--rose-deep)}
+.chip.active{background:var(--rose-deep);color:#fff;border-color:var(--rose-deep)}
+
+/* ---------- Nosotros ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about__img{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#dfe8db,#f8e7e7);overflow:hidden;box-shadow:16px 16px 0 var(--gold-light)}
+.about h2{text-align:left}
+.about .eyebrow{text-align:left}
+.about p{color:var(--muted);margin-top:20px}
+.stats{display:flex;gap:44px;margin-top:34px}
+.stats b{display:block;font-family:var(--serif);font-size:2.6rem;color:var(--rose-deep);font-weight:500}
+.stats span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Pasos y testimonios ---------- */
+.steps,.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.step{text-align:center;padding:10px}
+.step b{font-family:var(--serif);font-size:3.4rem;color:var(--gold);font-weight:400}
+.step h3{font-size:1.6rem;margin:4px 0 8px;color:var(--wine)}
+.step p{color:var(--muted);font-size:.92rem}
+.quote{background:#fff;padding:36px 30px;border-top:3px solid var(--rose);box-shadow:0 10px 40px #4a0e1f14}
+.quote p{font-family:var(--serif);font-size:1.35rem;line-height:1.4;color:var(--wine)}
+.quote small{display:block;margin-top:16px;color:var(--stem);letter-spacing:.16em;text-transform:uppercase;font-size:.7rem;font-weight:600}
+
+/* ---------- Contacto ---------- */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#8c1d3f26;border:1px solid #8c1d3f26;text-align:center}
+.contact div{background:var(--ivory);padding:38px 22px}
+.contact h3{font-size:1.5rem;margin-bottom:6px;color:var(--wine)}
+.contact p{color:var(--muted);font-size:.92rem}
+.cta{text-align:center;margin-top:48px}
+
+footer{background:var(--wine);color:#dcbcc4;text-align:center;padding:38px 24px;font-size:.8rem;letter-spacing:.08em;border-top:3px solid var(--gold)}
+footer b{font-family:var(--serif);font-size:1.6rem;color:#fff;font-weight:500;display:block;margin-bottom:6px}
+
+.float-wa{position:fixed;right:22px;bottom:22px;z-index:30;background:var(--stem);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;text-decoration:none;border:2px solid var(--gold);box-shadow:0 8px 24px #4a0e1f55;transition:.3s}
+.float-wa:hover{transform:scale(1.08);background:var(--stem-deep)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:820px){
+  section{padding:76px 20px}
+  .about{grid-template-columns:1fr;gap:36px}
+  .about__img{box-shadow:10px 10px 0 var(--gold-light)}
+  #menu-btn{display:block}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;gap:0;padding:8px 24px 20px;box-shadow:0 12px 24px #4a0e1f26}
+  nav.open{display:flex}
+  nav a{color:var(--wine);padding:12px 0;border-bottom:1px solid #8c1d3f14}
+  .btn--ghost{margin:12px 0 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
